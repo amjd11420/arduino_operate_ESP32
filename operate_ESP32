@@ -1,0 +1,18 @@
+Put ESP32 piece in the cable
+Put the USP of cable into the computer
+Run the Arduino IDE 
+go to Tools 
+Control
+Panel Manager
+
+if ESP32 choice not exist
+go to Files
+choose Preferences
+check library of definition ESP32 is exist
+download cp2104 driver
+back to step #3
+ 
+if ESP32 choice exist
+choose the ESP32 choice
+Choose one of the existing codes 
+test the ESP32 piece
