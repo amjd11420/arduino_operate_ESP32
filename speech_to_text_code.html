@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html> 
+ <body>
+    <div>
+        <h1 align="center"> speech to text converter </h1>
+        <h2 align="center"><textarea id="textarea" rows="5" cols="50" style="text-align:center; font-size: xx-large; "></textarea> </h2> 
+        <h2 align="center"> <button id="speak"> اضغط لبدء التحدث </button> </h2>
+    </div>
+ </body>
+
+ <script>
+ var speak = document.getElementById('speak'); //<!--get the button by its id to controll it-->
+ var textarea = document.getElementById('textarea'); //<!--get the textarea by its id to controll it-->
+ var speechRecognition = window.speechRecognition || window.webkitSpeechRecognition; // window.speechRecognition is avaliable in the widow opject, it used to allow speech recognition.
+                                                                                     // window.webkitSpeechRecognition is an alternative recognition system if first one does not work.
+ var recognition = new speechRecognition(); // new constructor for recognition porpuse
+ recognition.lang = "ar-AE"; // to make the text in Arabic language.
+ 
+ speak.addEventListener('click', function() { //function to track speak element
+     recognition.start();  // on click to start recognition 
+     textarea.innerHTML = 'ابدا بالتحدث'; //to inform user to start speaking
+     
+ }) 
+ 
+recognition.onresult = function (e) { // onresult to make the result should be ready,, function(e) is function has a response
+    console.log(e); //response to make converter comes converted result
+    var transcript = e.results[0][0].transcript; // save the script result
+    textarea.innerHTML = transcript; // to show the script in the window
+}
+ 
+
+</script>
+</html>
